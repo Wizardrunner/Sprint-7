@@ -12,7 +12,7 @@ import { StarshipListComponent } from './components/starships-list/starships-lis
   standalone: true,
   imports: [StarshipListComponent, RouterOutlet], // Correctamente importado RouterOutlet
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'star-wars-ships';
