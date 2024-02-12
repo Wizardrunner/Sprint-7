@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss (estilos globales)
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Star Jedi', sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000;
+    .navbar-logo img {
+      width: 100px;
+    }
+    .navbar-links .nav-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .navbar-social-login {
+      display: flex;
+      align-items: center;
+      .login-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+      }
+      // Agrega estilos para los iconos de redes sociales aquí
+    }
+  }
+  
