@@ -1,9 +1,10 @@
-// app.routes.ts
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import { WelcomePageComponent } from './components/welcome-page-component/welcome-page-component.component';
+import { WelcomeComponent } from './components/welcome-page-component/welcome-page-component.component'; // Asegúrate de que el nombre y la ruta sean correctos
 import { StarshipListComponent } from './components/starships-list/starships-list.component';
 
 export const routes: Routes = [
-  { path: '', component: WelcomePageComponent },
-  { path: 'starships', component: StarshipListComponent }
+  { path: '', component: WelcomeComponent },
+  { path: 'starships', component: StarshipListComponent },
+  // otras rutas...
 ];

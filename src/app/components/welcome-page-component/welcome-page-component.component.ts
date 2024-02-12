@@ -1,11 +1,12 @@
-// welcome-page.component.ts
+// welcome.component.ts
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-welcome-page',
-  templateUrl: './welcome-page-component.component.html',
-  standalone: true,
-  imports: [RouterModule]
+  selector: 'app-welcome',
+  template: `
+    <h1>Welcome to the Star Wars Universe</h1>
+    <a routerLink="/starships">Explore Starships</a>
+  `,
+  standalone: true
 })
-export class WelcomePageComponent {}
+export class WelcomeComponent {}
