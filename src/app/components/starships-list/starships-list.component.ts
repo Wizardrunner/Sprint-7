@@ -10,10 +10,14 @@ import { StarshipDetailsComponent } from '../starship-details/starship-details.c
 @Component({
   selector: 'app-starship-list',
   template: `
-    <div *ngFor="let starship of starships$ | async" class="starship-item" (click)="showStarshipDetails(starship)">
-      <p>{{ starship.name }} - {{ starship.model }}</p>
+    <div class="starships-container">
+      <div *ngFor="let starship of starships$ | async" class="starship-item" (click)="showStarshipDetails(starship)">
+        <p>{{ starship.name | uppercase }}</p><p>{{ starship.model }}</p>
+      </div>
+      <div class="load-more-container">
+        <button (click)="loadMore()" class="load-more-button">Load More</button>
+      </div>
     </div>
-    <button (click)="loadMore()">Load More</button>
     <app-starship-details [starship]="selectedStarship"></app-starship-details>
   `,
   standalone: true,

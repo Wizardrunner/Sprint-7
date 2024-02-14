@@ -1,3 +1,67 @@
 .starship-item {
+  background-color: #222; // Color de fondo oscuro
+  color: #bbb; // Color de texto gris oscuro para el nombre
+  padding: 15px;
+  margin: 0 auto 20px; // Centrado horizontal y margen inferior
+  width: 60%; // Ancho relativo al contenedor padre
+  max-width: 600px; // Máximo ancho del cuadro
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Sombra para profundidad
+  border-radius: 5px; // Bordes redondeados
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // Alineación del contenido a la izquierda
+  text-align: left; // Texto alineado a la izquierda
+
+  p {
+    margin: 5px; // Margen para separar el nombre del modelo
+    width: 100%; // El párrafo ocupa todo el ancho disponible
+
+    &:first-child {
+      text-transform: uppercase; // Asegura que el nombre esté en mayúsculas
+    }
+
+    &:nth-child(2) { // Estilos específicos para el párrafo del modelo
+      font-size: 0.9em; // Hace el texto un poco más pequeño
+      color: #888; // Un color de texto más oscuro para el modelo
+    }
+  }
+
+  &:first-child {
+    margin-top: 20px; // Espacio adicional por arriba para el primer cuadro
+  }
+}
+
+.starships-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.starship-item, .load-more-container {
+  margin: 0 auto 20px; // Asegura alineación y margen para ambos, cuadros y botón
+  width: 60%; // Ancho igual al de los cuadros para alineación
+  max-width: 600px; // Máximo ancho igual al de los cuadros
+}
+
+.load-more-button {
+  background-color: rgb(250, 222, 75); // Color de fondo original
+  color: rgb(0, 0, 0); // Color del texto
+  border: 2px solid rgb(250, 222, 75); // Color del borde
+  margin-top: 0;
+  min-width: 210px;
+  height: 48px;
+  padding: 4px 20px;
+  font-size: 1rem;
+  line-height: 24px;
+  border-radius: 24px;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s; // Añade transición para el cambio de color suave
+
+  &:hover {
+    background-color: rgb(242, 210, 78); // Color de fondo durante el hover
+  }
 }
