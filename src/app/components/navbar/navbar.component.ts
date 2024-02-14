@@ -51,10 +51,12 @@ import { RouterModule } from '@angular/router';
         <a href="/login">Login</a>
 </div>
     </div>
+    <div class="tabs-container">
     <nav>
-      <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="/starships" class="nav-link">Starships</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a routerLink="/starships" routerLinkActive="active" class="nav-link">Starships</a>
     </nav>
+  </div>
 </div>
   `,
   styleUrls: ['./navbar.component.scss'],

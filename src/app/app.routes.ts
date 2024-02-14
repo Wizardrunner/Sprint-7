@@ -4,7 +4,7 @@ import { WelcomeComponent } from './components/welcome-page-component/welcome-pa
 import { StarshipListComponent } from './components/starships-list/starships-list.component';
 
 export const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'starships', component: StarshipListComponent },
   // otras rutas...
 ];
