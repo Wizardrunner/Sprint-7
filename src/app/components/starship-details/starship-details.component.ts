@@ -7,7 +7,7 @@ import { Starship } from '../../services/starships.service';
   selector: 'app-starship-details',
   template: `
     <div *ngIf="starship">
-      <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name">
+    <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name" (error)="onImageError($event)">
       <h3>Detalles de la Nave: {{ starship.name }}</h3>
       <p>Modelo: {{ starship.model }}</p>
       <p>Fecha de creación: {{ starship.created }}</p>
@@ -33,4 +33,9 @@ export class StarshipDetailsComponent {
   getImageUrl(id: string): string {
     return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
   }
+  onImageError(event: any) {
+    event.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg';
+  }
+  
+  
 }
