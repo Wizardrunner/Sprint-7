@@ -1,0 +1,85 @@
+.starship-details-container {
+    display: flex;
+    align-items: flex-start; // Alinea al inicio para asegurar la consistencia en el alto
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .image-container img {
+    height: 383px; // Ajusta la altura de la imagen
+    border-right: 2px solid rgb(250, 222, 75); // Barra vertical fina a la derecha de la imagen
+  }
+  
+  .data-container {
+    box-sizing: border-box; // Asegura que padding y border se incluyan en el cálculo de la altura
+    max-height: 383px;
+    position: relative; // Contexto de posicionamiento para el botón de cierre absoluto
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // Dos columnas de igual ancho
+    gap: 20px; // Reduce el espacio entre elementos para que estén más pegados
+    background-color: #222;
+    color: #bbb;
+    padding: 20px;
+    border-radius: 5px;
+    height: 383px; // Asegura que el cuadro tenga la misma altura que la imagen
+  
+    h3, h4 {
+      margin: 0; 
+      grid-column: 1 / -1; // Extiende estos elementos a través de ambas columnas
+    }
+  
+    p {
+      font-size:medium;
+      margin: 0;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent; // Fondo transparente
+        color: #bbb; // Color del texto acorde al tema
+        border: none; // Sin borde
+        cursor: pointer; // Cursor de mano para indicar clic
+        font-size: 1.5rem; // Tamaño más grande para la "X"
+        line-height: 1; // Ajuste de la altura de línea para centrar la "X"
+    
+        &:hover {
+          color: #fff; // Cambio de color al pasar el ratón para mejor visibilidad
+        }
+      }
+    }
+      
+  .load-more-button {
+    background-color: rgb(250, 222, 75);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(250, 222, 75);
+    margin-top: 0;
+    min-width: 210px;
+    height: 48px;
+    padding: 4px 20px;
+    font-size: 1rem;
+    line-height: 24px;
+    border-radius: 24px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: rgb(242, 210, 78);
+    }
+  }
+  
+      
+  @media (max-width: 600px) { // Ajusta este valor según sea necesario
+    .image-container img {
+      border-right: 2px solid transparent; // Oculta la barra vertical en modo responsive
+      border-bottom: 2px solid rgb(250, 222, 75); // Muestra la barra horizontal debajo de la imagen
+    }
+    .starship-details-container {
+      flex-direction: column; // Alinea los elementos verticalmente en pantallas pequeñas
+    }
+  }
+  
