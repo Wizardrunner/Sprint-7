@@ -1,30 +1,30 @@
 // starship-list.component.scss
 .starship-item {
-  background-color: #222; // Color de fondo oscuro
-  color: #bbb; // Color de texto gris oscuro para el nombre
+  background-color: #222; 
+  color: #bbb; 
   padding: 15px;
   margin: 0 auto 20px; // Centrado horizontal y margen inferior
   width: 60%; // Ancho relativo al contenedor padre
   max-width: 600px; // Máximo ancho del cuadro
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Sombra para profundidad
-  border-radius: 5px; // Bordes redondeados
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  border-radius: 5px; 
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; // Alineación del contenido a la izquierda
-  text-align: left; // Texto alineado a la izquierda
+  align-items: flex-start; 
+  text-align: left; 
 
   p {
-    margin: 5px; // Margen para separar el nombre del modelo
-    width: 100%; // El párrafo ocupa todo el ancho disponible
+    margin: 5px; 
+    width: 100%; 
 
     &:first-child {
-      text-transform: uppercase; // Asegura que el nombre esté en mayúsculas
+      text-transform: uppercase; 
     }
 
     &:nth-child(2) { // Estilos específicos para el párrafo del modelo
-      font-size: 0.9em; // Hace el texto un poco más pequeño
-      color: #888; // Un color de texto más oscuro para el modelo
+      font-size: 0.9em; 
+      color: #888; 
     }
   }
 
@@ -46,9 +46,9 @@
 }
 
 .load-more-button {
-  background-color: rgb(250, 222, 75); // Color de fondo original
-  color: rgb(0, 0, 0); // Color del texto
-  border: 2px solid rgb(250, 222, 75); // Color del borde
+  background-color: rgb(250, 222, 75); 
+  color: rgb(0, 0, 0); 
+  border: 2px solid rgb(250, 222, 75);
   margin-top: 0;
   min-width: 210px;
   height: 48px;

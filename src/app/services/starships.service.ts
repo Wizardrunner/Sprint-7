@@ -29,7 +29,7 @@ export interface Starship {
   passengers: string;
   max_atmosphering_speed: string;
   pilots: string;
-  id?: string; // Opcional, agregaremos esta propiedad
+  id?: string; // Opcional
 }
 
 @Injectable({
