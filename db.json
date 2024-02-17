@@ -17,9 +17,23 @@
     {
       "id": 3,
       "name": "Abundia",
-      "surname": "Cansaalmas",
+      "surname": "Cansalmas",
       "email": "abundia@jmail.com",
       "password": "$2b$10$B.jjLzfVcE9qhAjPa9dHyujzQXc1B0Jbc/XjJi4ywr.unrAZDT5zy"
+    },
+    {
+      "id": 4,
+      "name": "Marianela",
+      "surname": "Forragaitas",
+      "email": "forragaitas@jotmeil.com",
+      "password": "$2b$10$/VsGaBJKQSsmIHGYHtV12ubNfuhHdRrxuTozocRjjUIwSzJY0p3Re"
+    },
+    {
+      "id": 5,
+      "name": "Sofía",
+      "surname": "Esteban",
+      "email": "sofia@ponpon.com",
+      "password": "$2b$10$.faS3IbvHHuj6ECO85ix2OXeKx2pCG/MlCKFT8UCQsr4vYokdSg.a"
     }
   ]
 }

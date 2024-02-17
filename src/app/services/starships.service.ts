@@ -1,10 +1,8 @@
-// starship.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
-// Definir interfaces aquí
 interface StarshipApiResponse {
   count: number;
   next: string | null;
@@ -28,8 +26,9 @@ export interface Starship {
   edited: string;
   passengers: string;
   max_atmosphering_speed: string;
-  pilots: string;
-  id?: string; // Opcional
+  pilots: string[];
+  films: string[];
+  id?: string;
 }
 
 @Injectable({
@@ -52,8 +51,22 @@ export class StarshipService {
     );
   }
 
+  getEntityByUrl<T>(url: string): Observable<T> {
+    return this.http.get<T>(url);
+  }
+
+  getPilotsDetails(pilotUrls: string[]): Observable<any[]> {
+    if (!pilotUrls.length) return of([]);
+    return forkJoin(pilotUrls.map(url => this.getEntityByUrl(url)));
+  }
+
+  getMoviesDetails(movieUrls: string[]): Observable<any[]> {
+    if (!movieUrls.length) return of([]);
+    return forkJoin(movieUrls.map(url => this.getEntityByUrl(url)));
+  }
+
   private extractId(url: string): string {
-    const idMatch = url.match(/\/starships\/(\d+)\/$/);
-    return idMatch ? idMatch[1] : '';
+    const idMatch = url.match(/\/([a-zA-Z]+)\/(\d+)\/?$/);
+    return idMatch ? idMatch[2] : '';
   }
 }

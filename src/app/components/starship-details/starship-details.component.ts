@@ -1,12 +1,14 @@
 // starship-details.component.ts
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Starship } from '../../services/starships.service'; 
+import { Starship, StarshipService } from '../../services/starships.service'; 
+import { PilotCardComponent } from '../pilot-card/pilot-card.component';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-starship-details',
   styleUrls: ['./starship-details.component.scss'],
-template: `
+  template: `
 <div class="starship-details-container" *ngIf="starship">
   <div class="image-container">
     <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name" (error)="onImageError($event)">
@@ -27,15 +29,37 @@ template: `
       <p>Consumables: {{ starship.consumables }}</p>
       <p>Crew: {{ starship.crew }}</p>
       <p>Passengers: {{ starship.passengers }}</p>
-    </div>
+      <ng-container *ngIf="pilots.length > 0">
+      <h4>Pilots:</h4>
+      <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
+    </ng-container>
+    <ng-container *ngIf="movies.length > 0">
+      <h4>Movies:</h4>
+      <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+    </ng-container>
   </div>
-`,
+</div>
+  `,
+  // Remember to include PilotCardComponent and MovieCardComponent in your module's declarations if not using standalone components
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, PilotCardComponent, MovieCardComponent]
 })
-export class StarshipDetailsComponent {
+export class StarshipDetailsComponent implements OnInit {
   @Input() starship?: Starship;
   @Output() close = new EventEmitter<void>();
+  pilots: any[] = [];
+  movies: any[] = [];
+
+  constructor(private starshipService: StarshipService) {}
+
+  ngOnInit() {
+    if (this.starship) {
+      // Assuming you have methods in StarshipService to fetch pilots and movies
+      // And assuming your starship object has arrays of URLs for pilots and movies
+      this.starshipService.getPilotsDetails(this.starship.pilots).subscribe(pilots => this.pilots = pilots);
+      this.starshipService.getMoviesDetails(this.starship.films).subscribe(movies => this.movies = movies);
+    }
+  }
 
   getImageUrl(id: string): string {
     return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
