@@ -1,22 +1,24 @@
 {
-    "signupUsersList": [
-      {
-        "id": "1863",
-        "Name": "Perico",
-        "LastName": "Pellizcacristales",
-        "Email": "perico@jmail.com",
-        "Phone": "137137137",
-        "Password": "Password1",
-        "PasswordConfirmation": "Password1"
-      },
-      {
-        "id": "1864",
-        "Name": "Abundia",
-        "LastName": "Hartasopas",
-        "Email": "abundia@jmail.com",
-        "Phone": "112112112",
-        "Password": "Password2",
-        "PasswordConfirmation": "Password2"
-      }
-    ]
-  }
+  "login": [
+    {
+      "id": 1,
+      "email": "perico@jmail.com",
+      "password": "Password1"
+    },
+    {
+      "id": 2,
+      "email": "abundia@jmail.com",
+      "password": "Password2"
+    },
+    {
+      "id": "97b9",
+      "email": "perico@jmail.com",
+      "password": "Password1"
+    },
+    {
+      "id": "e4e7",
+      "email": "perico@jmail.com",
+      "password": "Password1"
+    }
+  ]
+}

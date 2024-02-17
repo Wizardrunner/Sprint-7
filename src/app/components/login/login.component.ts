@@ -1,3 +1,4 @@
+// login.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service'; // Asegúrate de que la ruta sea correcta
