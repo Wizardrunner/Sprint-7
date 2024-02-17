@@ -5,6 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 export interface User {
+  name: string; 
+  surname: string; 
   email: string;
   password: string;
 }
