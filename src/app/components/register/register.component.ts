@@ -1,7 +1,8 @@
+// register.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según sea necesario
-
+import { AuthService } from '../../services/auth.service'; 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,21 +11,29 @@ import { AuthService } from '../../services/auth.service'; // Ajusta la ruta seg
   imports: [FormsModule]
 })
 export class RegisterComponent {
-  name: string = ''; // Añade la propiedad para el nombre
-  surname: string = ''; // Añade la propiedad para el apellido
+  name: string = ''; 
+  surname: string = ''; 
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router 
+  ) {}
 
   register() {
-    // Actualiza la llamada a register para incluir nombre y apellido
     this.authService.register({ name: this.name, surname: this.surname, email: this.email, password: this.password }).subscribe({
-      next: (user) => {
-        // Maneja el éxito del registro, por ejemplo, haciendo login automático
-        console.log('Registro exitoso', user);
-        // Considera manejar aquí la redirección o la confirmación visual del registro exitoso
-        this.authService.login(this.email, this.password).subscribe(); // Opcional: Login automático
+      next: () => {
+        // Después del registro exitoso, inicia sesión automáticamente
+        this.authService.login(this.email, this.password).subscribe({
+          next: () => {
+            // Después del inicio de sesión exitoso, redirige a la página de naves
+            this.router.navigate(['/starships']); // Asegúrate de que la ruta es correcta
+          },
+          error: (error) => {
+            console.error('Error en el inicio de sesión automático', error);
+          }
+        });
       },
       error: (error) => {
         console.error('Error en el registro', error);

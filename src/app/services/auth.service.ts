@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 export interface User {
   name: string; 
@@ -18,7 +19,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     const isBrowser = typeof window !== 'undefined'; // Verifica si está en el navegador
     const storedUser = isBrowser ? localStorage.getItem('currentUser') : null; // Accede a localStorage solo si está en el navegador
     this.currentUserSubject = new BehaviorSubject<User | null>(storedUser ? JSON.parse(storedUser) : null);
@@ -41,8 +42,11 @@ export class AuthService {
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+  
+    // Redirige al usuario al login
+    this.router.navigate(['/login']);
   }
-
+  
   register(user: User) {
     return this.http.post(`http://localhost:3000/signup`, user);
   }

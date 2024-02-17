@@ -6,6 +6,20 @@
       "surname": "Hartasopas",
       "email": "perico@jmail.com",
       "password": "$2b$10$liFEyRgnX1Wk24.kQebxou1I1bNrKLoDCbzE2ozSonBlmULF8AFAe"
+    },
+    {
+      "id": 2,
+      "name": "Guillermo",
+      "surname": "Esteban",
+      "email": "planeta.alderaan@gmail.com",
+      "password": "$2b$10$KaMX1KEoH3Y26RwWFKwEkO7sXiwPx4uPO2I/USAj80eKDHlRrZyy2"
+    },
+    {
+      "id": 3,
+      "name": "Abundia",
+      "surname": "Cansaalmas",
+      "email": "abundia@jmail.com",
+      "password": "$2b$10$B.jjLzfVcE9qhAjPa9dHyujzQXc1B0Jbc/XjJi4ywr.unrAZDT5zy"
     }
   ]
 }
