@@ -1,6 +1,9 @@
 // src/app/components/navbar/navbar.component.ts
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según sea necesario
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-navbar',
@@ -47,8 +50,12 @@ import { RouterModule } from '@angular/router';
         <img src="../../../assets/logo_starwars.png" alt="Star Wars Logo">
     </div>
     <div class="login-link">
-        <!-- Enlace para hacer login -->
-        <a href="/login">Login</a>
+  <!-- Muestra el enlace de Login/Registro si el usuario no está logueado -->
+  <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+  <a *ngIf="!isLoggedIn" routerLink="/register">Register</a>
+  
+  <!-- Muestra el enlace de Logout si el usuario está logueado -->
+  <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
 </div>
     </div>
     <div class="tabs-container">
@@ -61,6 +68,21 @@ import { RouterModule } from '@angular/router';
   `,
   styleUrls: ['./navbar.component.scss'],
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, CommonModule]
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  // Agrega una propiedad para el estado de autenticación
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService) {
+    // Suscribirse a los cambios del estado de autenticación
+    this.authService.currentUser.subscribe(user => {
+      this.isLoggedIn = !!user;
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    // Aquí puedes añadir lógica adicional si es necesario, como redirigir al usuario
+  }
+}
