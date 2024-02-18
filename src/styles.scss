@@ -1,7 +1,10 @@
 // src/styles.scss (estilos globales)
 body {
-    background-color: black;
-    color: white;
-    font-family: 'Star Jedi', sans-serif;
+  background-color: black; // Fondo negro para todos los componentes
+  background-image: url('./assets/bg_body.jpeg'); // Fondo de imagen
+  background-size: cover; // Ajustar la imagen al tamaño del contenedor
+  background-position: center; // Centrar la imagen
+  color: white !important;
+  font-family: 'Star Jedi', sans-serif;
   }
   

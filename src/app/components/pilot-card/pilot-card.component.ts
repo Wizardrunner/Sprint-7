@@ -17,7 +17,7 @@ interface Pilot {
   `,
   styles: [`
     .card {
-      /* Añade aquí los estilos de tu tarjeta */
+      /* Añade aquí los estilos */
     }
   `],
   standalone: true,

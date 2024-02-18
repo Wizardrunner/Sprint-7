@@ -34,6 +34,34 @@
       "surname": "Esteban",
       "email": "sofia@ponpon.com",
       "password": "$2b$10$.faS3IbvHHuj6ECO85ix2OXeKx2pCG/MlCKFT8UCQsr4vYokdSg.a"
+    },
+    {
+      "id": 6,
+      "name": "Juan",
+      "surname": "Pellizcacristales",
+      "email": "jpellizca@cristales.com",
+      "password": "$2b$10$tjZP00ONCvDVknZnF9TSpOqaC7c5WBle3M9UBLJjlOeU8YeXikxzu"
+    },
+    {
+      "id": 7,
+      "name": "Antonia",
+      "surname": "Robaesteras",
+      "email": "robadora@jmail.com",
+      "password": "$2b$10$Yzyuci/vm/Tuvb.wKDQemeuKT26oR3PkUHu7nN1CTdEiTExJdvCZ6"
+    },
+    {
+      "id": 8,
+      "name": "Juan",
+      "surname": "Palomo",
+      "email": "palomero@palomo.com",
+      "password": "$2b$10$Ar8LUuoVWZXdHWp74mCO/etUuuik4TmurKej.4qmZ9rgtLJS8xDHe"
+    },
+    {
+      "id": 9,
+      "name": "guillermo",
+      "surname": "esteban",
+      "email": "sfdfs@fas.com",
+      "password": "$2b$10$FFk7fAXMHqf1pK5S4l0X5.theCd7VECcDW.qijZZ51b/iMKVfepAu"
     }
   ]
 }

@@ -40,7 +40,6 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   </div>
 </div>
   `,
-  // Remember to include PilotCardComponent and MovieCardComponent in your module's declarations if not using standalone components
   standalone: true,
   imports: [CommonModule, PilotCardComponent, MovieCardComponent]
 })
@@ -54,8 +53,6 @@ export class StarshipDetailsComponent implements OnInit {
 
   ngOnInit() {
     if (this.starship) {
-      // Assuming you have methods in StarshipService to fetch pilots and movies
-      // And assuming your starship object has arrays of URLs for pilots and movies
       this.starshipService.getPilotsDetails(this.starship.pilots).subscribe(pilots => this.pilots = pilots);
       this.starshipService.getMoviesDetails(this.starship.films).subscribe(movies => this.movies = movies);
     }
