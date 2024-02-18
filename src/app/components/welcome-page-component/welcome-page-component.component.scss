@@ -1,0 +1,69 @@
+.welcome-container {
+    text-align: center; 
+    margin-top: 2rem;
+  }
+  
+  .welcome-title {
+    text-align: center; 
+    font-size: 34px; 
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .picsum-img-wrapper {
+    text-align: center; 
+    position: relative;
+  }
+  
+  .picsum-img-wrapper img {
+    max-width: 100%; /* Permite que la imagen sea hasta el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen ajustando la altura automáticamente */
+    margin: auto; /* Centra la imagen verticalmente si es necesario */
+    
+    /* Limita el tamaño de la imagen a no ser más grande que ciertas dimensiones */
+    @media (min-width: 768px) { /* Ajusta este valor según tus necesidades */
+      max-width: 800px; /* o el ancho máximo deseado */
+      max-height: 600px; /* o la altura máxima deseada */
+    }
+  }
+      
+  .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff; 
+  }
+  
+  .custom-button {
+    margin-top: 30px; 
+    margin-bottom: 2rem;
+    position: relative; 
+    z-index: 2; 
+  }
+  .special-bg {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 85%, transparent 100%);
+    max-width: 80%; 
+    margin: auto;
+  }
+      
+  .carousel-caption h5, .carousel-caption p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita el texto a dos líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2; 
+    max-height: 2.4em; /* Basado en el line-height para permitir dos líneas */
+  }
+  
+  /* Estilo para el contenedor del carrusel */
+.ngb-carousel {
+    max-width: 600px; 
+    margin: auto; 
+  }
+    

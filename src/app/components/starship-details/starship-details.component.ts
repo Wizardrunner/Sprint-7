@@ -43,9 +43,16 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   <!-- Sección de Pilots -->
   <div class="pilots-section">
     <h2>Pilots</h2>
-    <div class="pilots-container">
-      <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
-    </div>
+    <ng-container *ngIf="pilots.length > 0; else noPilots">
+      <div class="pilots-container">
+        <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
+      </div>
+    </ng-container>
+    <ng-template #noPilots>
+      <div class="alert alert-warning" role="alert">
+        Sorry, but no pilots are available.
+      </div>
+    </ng-template>
   </div>
 </div>
   `,

@@ -59,4 +59,8 @@ export class RegisterComponent {
       });
     }
   }
+  navigateToLogin() {
+    this.router.navigate(['/login']); // Navega a la ruta de login
   }
+
+}

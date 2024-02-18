@@ -17,7 +17,7 @@
     {
       "id": 3,
       "name": "Abundia",
-      "surname": "Cansalmas",
+      "surname": "Cansaalmas",
       "email": "abundia@jmail.com",
       "password": "$2b$10$B.jjLzfVcE9qhAjPa9dHyujzQXc1B0Jbc/XjJi4ywr.unrAZDT5zy"
     },
@@ -58,8 +58,8 @@
     },
     {
       "id": 9,
-      "name": "guillermo",
-      "surname": "esteban",
+      "name": "Honorato",
+      "surname": "Cuellicorto",
       "email": "sfdfs@fas.com",
       "password": "$2b$10$FFk7fAXMHqf1pK5S4l0X5.theCd7VECcDW.qijZZ51b/iMKVfepAu"
     },
@@ -69,6 +69,13 @@
       "surname": "Revientabaúles",
       "email": "baul@gmail.com",
       "password": "$2b$10$0/okaQZ7CACj1QoEzQTgcO.p13cvnL7PPb7Aw5d5s0omZuqpcj1FW"
+    },
+    {
+      "id": 11,
+      "name": "Inviolata",
+      "surname": "Concepción",
+      "email": "habemus@papam.com",
+      "password": "$2b$10$m0Dp7tJnH2V9VIJseKe1XuI3xd5QtF7mtqv6.5RP/oOJJ4lrA/h6W"
     }
   ]
 }

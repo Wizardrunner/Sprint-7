@@ -125,6 +125,14 @@ p, h3, h4 {
   margin-top: 40px; 
 }
 
+/* Estilos para el banner dentro de pilots-section para asegurar que ocupe todo el ancho */
+.alert-warning {
+  width: 100%; 
+  margin-left: 0; 
+  margin-right: 0; 
+}
+
+
 @media (max-width: 600px) {
   .image-and-data-container {
     flex-direction: column;

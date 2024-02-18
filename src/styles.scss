@@ -1,3 +1,6 @@
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
 // src/styles.scss (estilos globales)
 body {
   background-color: black; 
@@ -7,6 +10,19 @@ body {
   color: white !important;
   font-family: 'Star Jedi', sans-serif;
   }
+
+  
+.link-primary {
+  color: #007bff; 
+  cursor: pointer; 
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline; 
+  }
+}
+.login-link-container {
+  margin-bottom: 2rem; /* Ajusta este valor según necesites más separación */
+}
   
 // Suponiendo que añades clases para los contenedores de películas y pilotos
 .movies-container, .pilots-container {
@@ -24,6 +40,7 @@ body {
 
 /* Estilos para el cuadro modal */
 .modal-container {
+  margin: auto;
   color: black;
   position: fixed;
   top: 50%;
@@ -32,7 +49,7 @@ body {
   background-color: #f2f2f2; 
   border-radius: 10px; 
   padding: 20px;
-  width: 400px; 
+  width: 600px;
   z-index: 999; 
 }
 
@@ -55,6 +72,8 @@ body {
 
 .custom-button:hover {
   background-color: rgb(242, 210, 78);
+  border: 2px solid rgb(242, 210, 78);
+
 }
 
 /* Estilos para el botón deshabilitado */
@@ -98,3 +117,5 @@ body {
   font-size: 16px; 
 
 }
+
+

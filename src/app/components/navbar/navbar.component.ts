@@ -1,5 +1,6 @@
 // src/app/components/navbar/navbar.component.ts
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; // Asegúrate de importar Router
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según sea necesario
 import { CommonModule } from '@angular/common';
@@ -61,7 +62,7 @@ import { CommonModule } from '@angular/common';
     <div class="tabs-container">
     <nav>
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
-      <a routerLink="/starships" routerLinkActive="active" class="nav-link">Starships</a>
+      <a (click)="navigateToStarships()" class="nav-link">Starships</a>
     </nav>
   </div>
 </div>
@@ -74,12 +75,18 @@ export class NavbarComponent {
   // Agrega una propiedad para el estado de autenticación
   isLoggedIn = false;
 
-  constructor(private authService: AuthService) {
-    // Suscribirse a los cambios del estado de autenticación
+  constructor(private authService: AuthService, private router: Router) {
     this.authService.currentUser.subscribe(user => {
       this.isLoggedIn = !!user;
     });
   }
+
+  navigateToStarships() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/starships']);
+    });
+  }
+
 
   logout() {
     this.authService.logout();
