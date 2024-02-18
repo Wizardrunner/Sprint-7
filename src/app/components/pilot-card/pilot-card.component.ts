@@ -10,16 +10,11 @@ interface Pilot {
 @Component({
   selector: 'app-pilot-card',
   template: `
-    <div class="card">
+    <div class="pilot-card">
       <img [src]="getImageUrl()" alt="Foto del piloto" *ngIf="pilot.url">
       <h3>{{ pilot.name }}</h3>
     </div>
   `,
-  styles: [`
-    .card {
-      /* Añade aquí los estilos */
-    }
-  `],
   standalone: true,
   imports: [CommonModule]
 })

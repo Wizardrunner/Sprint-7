@@ -10,13 +10,15 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   styleUrls: ['./starship-details.component.scss'],
   template: `
 <div class="starship-details-container" *ngIf="starship">
-  <div class="image-container">
-    <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name" (error)="onImageError($event)">
-  </div>
-  <div class="data-container">
+  <h2 class="starship-title">Starships</h2>
+  <div class="image-and-data-container">
+    <div class="image-container">
+      <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name" (error)="onImageError($event)">
+    </div>
+    <div class="data-container">
     <button (click)="close.emit()" class="close-button">X</button>
     <h3>{{ starship.name }}</h3>
-      <h4>{{ starship.model }}</h4>
+      <h5>{{ starship.model }}</h5>
       <p>Creation date: {{ starship.created }}</p>
       <p>Modification date: {{ starship.edited }}</p>
       <p>Manufacturer: {{ starship.manufacturer }}</p>
@@ -29,14 +31,21 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
       <p>Consumables: {{ starship.consumables }}</p>
       <p>Crew: {{ starship.crew }}</p>
       <p>Passengers: {{ starship.passengers }}</p>
-      <ng-container *ngIf="pilots.length > 0">
-      <h4>Pilots:</h4>
-      <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
-    </ng-container>
-    <ng-container *ngIf="movies.length > 0">
-      <h4>Movies:</h4>
+      </div>
+  </div>
+  <!-- Sección de Films -->
+  <div class="films-section">
+    <h2>Films</h2>
+    <div class="movies-container">
       <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
-    </ng-container>
+    </div>
+  </div>
+  <!-- Sección de Pilots -->
+  <div class="pilots-section">
+    <h2>Pilots</h2>
+    <div class="pilots-container">
+      <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
+    </div>
   </div>
 </div>
   `,

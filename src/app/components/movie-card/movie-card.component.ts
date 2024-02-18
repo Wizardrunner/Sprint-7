@@ -17,11 +17,6 @@ export interface Movie {
       <p>Episodio: {{ movie.episode_id }}</p>
     </div>
   `,
-  styles: [`
-    .movie-card {
-      /* Estilos para tu tarjeta de película */
-    }
-  `],
   standalone: true,
   imports: [CommonModule]
 })

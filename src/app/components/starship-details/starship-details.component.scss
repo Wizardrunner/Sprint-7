@@ -1,85 +1,140 @@
+/* starship-details.component.scss */
 .starship-details-container {
-    display: flex;
-    align-items: flex-start; // Alinea al inicio para asegurar la consistencia en el alto
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding-left: 20px; 
+}
+
+/* Ajuste para los títulos dentro del contenedor para asegurar su alineación a la izquierda */
+.starship-title, .films-section > h2, .pilots-section > h2 {
+  text-align: left;
+  width: 100%;
+  margin-top: 40px;
+}
+
+
+
+.image-and-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-container img {
+  height: 383px;
+  border-right: 2px solid rgb(250, 222, 75);
+}
+
+.data-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; 
+  background-color: #222;
+  color: #bbb;
+  padding: 10px; 
+  border-radius: 5px;
+  position: relative;
+  margin-left: 0;
+  height: 383px; 
+  overflow: auto; 
+}
+
+/* Ajustar el tamaño de la fuente y el espacio de interlineado para h3, h5 y p */
+.data-container p {
+  font-size: 0.9rem; 
+  line-height: 1; 
+  margin-top: 0px; 
+  margin-bottom: 10px; 
+}
+
+/* Específico para el modelo para asegurar que sigue inmediatamente después del nombre */
+.data-container h5 {
+  margin-top: 4px; /* Espacio específico encima del modelo */
+}
+
+/* Coloca el nombre y el modelo uno sobre el otro al inicio */
+.data-container h3, .data-container h5 {
+  grid-column: 1 / -1; /* Hace que el nombre y el modelo abarquen ambas columnas */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #bbb;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  &:hover {
+    color: #fff;
   }
-  
-  .image-container img {
-    height: 383px; // Ajusta la altura de la imagen
-    border-right: 2px solid rgb(250, 222, 75); // Barra vertical fina a la derecha de la imagen
+}
+
+h4 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p, h3, h4 {
+  margin: 2px 0;
+  line-height: 1.2;
+}
+
+/* Asegura que los contenedores de películas y pilotos ocupen el ancho completo y alineen sus elementos a la izquierda */
+.films-section, .pilots-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.films-section h2, .pilots-section h2 {
+  text-align: left;
+  margin-left: 0px;
+}
+
+.movies-container, .pilots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0; 
+}
+
+
+/* Estilos para los cuadros de películas y pilotos */
+.movie-card, .pilot-card {
+  object-fit: cover; 
+  margin-bottom: 20px; 
+}
+
+.movie-card img, .pilot-card img {
+  object-fit: cover; 
+}
+
+/* Aumento del espacio vertical entre las secciones de Films y Pilots */
+.films-section, .pilots-section {
+  margin-top: 40px; 
+}
+
+@media (max-width: 600px) {
+  .image-and-data-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
   .data-container {
-    box-sizing: border-box; // Asegura que padding y border se incluyan en el cálculo de la altura
-    max-height: 383px;
-    position: relative; // Contexto de posicionamiento para el botón de cierre absoluto
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); // Dos columnas de igual ancho
-    gap: 20px; // Reduce el espacio entre elementos para que estén más pegados
-    background-color: #222;
-    color: #bbb;
-    padding: 20px;
-    border-radius: 5px;
-    height: 383px; // Asegura que el cuadro tenga la misma altura que la imagen
-  
-    h3, h4 {
-      margin: 0; 
-      grid-column: 1 / -1; // Extiende estos elementos a través de ambas columnas
-    }
-  
-    p {
-      font-size:medium;
-      margin: 0;
-    }
-    
-    .close-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: transparent; // Fondo transparente
-        color: #bbb; // Color del texto acorde al tema
-        border: none; // Sin borde
-        cursor: pointer; // Cursor de mano para indicar clic
-        font-size: 1.5rem; // Tamaño más grande para la "X"
-        line-height: 1; // Ajuste de la altura de línea para centrar la "X"
-    
-        &:hover {
-          color: #fff; // Cambio de color al pasar el ratón para mejor visibilidad
-        }
-      }
-    }
-      
-  .load-more-button {
-    background-color: rgb(250, 222, 75);
-    color: rgb(0, 0, 0);
-    border: 2px solid rgb(250, 222, 75);
-    margin-top: 0;
-    min-width: 210px;
-    height: 48px;
-    padding: 4px 20px;
-    font-size: 1rem;
-    line-height: 24px;
-    border-radius: 24px;
-    letter-spacing: 0.25px;
-    text-transform: uppercase;
-    cursor: pointer;
-    display: block;
-    transition: background-color 0.3s;
-  
-    &:hover {
-      background-color: rgb(242, 210, 78);
-    }
+    margin-left: 0;
+    grid-template-columns: 1fr;
   }
-  
-      
-  @media (max-width: 600px) { // Ajusta este valor según sea necesario
-    .image-container img {
-      border-right: 2px solid transparent; // Oculta la barra vertical en modo responsive
-      border-bottom: 2px solid rgb(250, 222, 75); // Muestra la barra horizontal debajo de la imagen
-    }
-    .starship-details-container {
-      flex-direction: column; // Alinea los elementos verticalmente en pantallas pequeñas
-    }
+  .films-section h2, .pilots-section h2 {
+    margin-left: 20px;
   }
-  
+}

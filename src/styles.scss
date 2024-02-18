@@ -1,10 +1,100 @@
 // src/styles.scss (estilos globales)
 body {
-  background-color: black; // Fondo negro para todos los componentes
-  background-image: url('./assets/bg_body.jpeg'); // Fondo de imagen
-  background-size: cover; // Ajustar la imagen al tamaño del contenedor
-  background-position: center; // Centrar la imagen
+  background-color: black; 
+  background-image: url('./assets/bg_body.jpeg'); 
+  background-size: cover; 
+  background-position: center; 
   color: white !important;
   font-family: 'Star Jedi', sans-serif;
   }
   
+// Suponiendo que añades clases para los contenedores de películas y pilotos
+.movies-container, .pilots-container {
+  grid-column: 1 / -1; // Hace que ocupen toda la anchura disponible de `.data-container`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; 
+  gap: 20px; 
+}
+
+// Ajuste para alinear con el borde izquierdo de la imagen
+.data-container {
+  padding-left: 0; 
+}
+
+/* Estilos para el cuadro modal */
+.modal-container {
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f2f2f2; 
+  border-radius: 10px; 
+  padding: 20px;
+  width: 400px; 
+  z-index: 999; 
+}
+
+/* Estilos para el botón */
+.custom-button {
+  background-color: rgb(250, 222, 75);
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(250, 222, 75);
+  min-width: 210px;
+  height: 48px;
+  padding: 4px 20px;
+  font-size: 1rem;
+  line-height: 24px;
+  border-radius: 24px;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: rgb(242, 210, 78);
+}
+
+/* Estilos para el botón deshabilitado */
+.custom-button[disabled] {
+  background-color: rgb(255, 233, 123);
+  border: 2px solid rgb(255, 233, 123);
+  color: #666; 
+  cursor: not-allowed;
+}
+
+
+.films-section .movie-card img, .pilots-section .pilot-card img {
+  width: 275px; 
+  height: auto; 
+  object-fit: cover; 
+}
+
+/* Estilos para los cards de películas y pilotos */
+.movie-card, .pilot-card {
+  background-color: #333; 
+  color: #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  overflow: hidden; 
+}
+
+.movie-card h3, .pilot-card h3, .movie-card p, .pilot-card p  {
+  text-align: center;
+  margin: 10px; 
+  color: #ccc; 
+
+}
+
+/* Estilo para el nombre del piloto y el título de la película */
+.movie-card h3, .pilot-card h3 {
+  font-size: 20px; 
+}
+
+/* Estilo para el nombre del episodio en los cards de películas */
+.movie-card p, .pilot-card p {
+  font-size: 16px; 
+
+}

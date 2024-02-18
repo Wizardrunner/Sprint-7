@@ -62,6 +62,13 @@
       "surname": "esteban",
       "email": "sfdfs@fas.com",
       "password": "$2b$10$FFk7fAXMHqf1pK5S4l0X5.theCd7VECcDW.qijZZ51b/iMKVfepAu"
+    },
+    {
+      "id": 10,
+      "name": "Fulgencio",
+      "surname": "Revientabaúles",
+      "email": "baul@gmail.com",
+      "password": "$2b$10$0/okaQZ7CACj1QoEzQTgcO.p13cvnL7PPb7Aw5d5s0omZuqpcj1FW"
     }
   ]
 }

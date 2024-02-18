@@ -1,19 +1,19 @@
 <!--register.component.html-->
-<div class="register-container">
+<div class="modal-container">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="mb-3">
-      <label for="name">Nombre:</label>
+      <label for="name">Name:</label>
       <input type="text" class="form-control" id="name" formControlName="name">
       <div *ngIf="registerForm.get('name')?.errors" class="text-danger">
-        <small *ngIf="registerForm.get('name')?.errors?.['minlength']">Mínimo 3 letras.</small>
+        <small *ngIf="registerForm.get('name')?.errors?.['minlength']">Minimum 3 letters.</small>
       </div>
     </div>
     
     <div class="mb-3">
-      <label for="surname">Apellido:</label>
+      <label for="surname">Last name:</label>
       <input type="text" class="form-control" id="surname" formControlName="surname">
       <div *ngIf="registerForm.get('surname')?.errors" class="text-danger">
-        <small *ngIf="registerForm.get('surname')?.errors?.['minlength']">Mínimo 3 letras.</small>
+        <small *ngIf="registerForm.get('surname')?.errors?.['minlength']">Minimum 3 letters.</small>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" formControlName="email">
       <div *ngIf="registerForm.get('email')?.errors" class="text-danger">
-        <small *ngIf="registerForm.get('email')?.errors?.['email']">Formato de email requerido.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Required email format.</small>
       </div>
     </div>
 
@@ -29,10 +29,10 @@
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" formControlName="password">
       <div *ngIf="registerForm.get('password')?.errors" class="text-danger">
-        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Minimum 6 characters.</small>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+    <button type="submit" class="custom-button" [disabled]="!registerForm.valid">Register</button>
   </form>
 </div>
