@@ -21,10 +21,9 @@ body {
   }
 }
 .login-link-container {
-  margin-bottom: 2rem; /* Ajusta este valor según necesites más separación */
+  margin-bottom: 2rem; 
 }
   
-// Suponiendo que añades clases para los contenedores de películas y pilotos
 .movies-container, .pilots-container {
   grid-column: 1 / -1; // Hace que ocupen toda la anchura disponible de `.data-container`
   display: flex;

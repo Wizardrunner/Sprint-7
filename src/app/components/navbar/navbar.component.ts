@@ -1,6 +1,6 @@
 // src/app/components/navbar/navbar.component.ts
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // Asegúrate de importar Router
+import { Router } from '@angular/router'; 
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según sea necesario
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   <div class="top-bar">
       <div class="social-links">
         <ul role="list">
-          <!-- Agrega aquí los elementos de la lista de redes sociales -->
+          <!-- Elementos de la lista de redes sociales -->
           <li class="other social-icon">
             <a class="link aw-independent" href="https://www.tiktok.com/@starwars" target="_blank" rel="noopener noreferrer">
               <img src="https://lumiere-a.akamaihd.net/v1/images/tiktok-logo-white_dd1a4867.svg?region=0%2C0%2C100%2C100" alt="TikTok" class="other-logo">
@@ -53,7 +53,7 @@ import { CommonModule } from '@angular/common';
     <div class="login-link">
   <!-- Muestra el enlace de Login/Registro si el usuario no está logueado -->
   <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
-  <a *ngIf="!isLoggedIn" routerLink="/register">Register</a>
+  <a *ngIf="!isLoggedIn" routerLink="/register">Sign Up</a>
   
   <!-- Muestra el enlace de Logout si el usuario está logueado -->
   <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
@@ -90,6 +90,5 @@ export class NavbarComponent {
 
   logout() {
     this.authService.logout();
-    // Aquí puedes añadir lógica adicional si es necesario, como redirigir al usuario
   }
 }

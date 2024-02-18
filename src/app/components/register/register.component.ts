@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -33,8 +33,18 @@ export class RegisterComponent {
     name: new FormControl('', [Validators.required, Validators.minLength(3), nombreApellidoValidator()]),
     surname: new FormControl('', [Validators.required, Validators.minLength(3), nombreApellidoValidator()]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  });
+    password: new FormControl('', [Validators.required, Validators.minLength(6), passwordValidator()]),
+    confirmPassword: new FormControl('', [Validators.required]),
+  }, { validators: this.passwordsMatchValidator() }); // Añade aquí el validador al grupo
+
+  // A continuación, define el validador para el grupo
+  passwordsMatchValidator(): ValidatorFn {
+    return (group: AbstractControl): ValidationErrors | null => {
+      const password = group.get('password')?.value;
+      const confirmPassword = group.get('confirmPassword')?.value;
+      return password === confirmPassword ? null : { passwordsNotMatch: true };
+    };
+  }
 
   constructor(private authService: AuthService, private router: Router) {}
 
