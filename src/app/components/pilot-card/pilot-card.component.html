@@ -1,0 +1,5 @@
+<!-- pilot-card.component.html -->
+<div class="pilot-card">
+    <img [src]="getImageUrl()" alt="Foto del piloto" *ngIf="pilot.url">
+    <h3>{{ pilot.name }}</h3>
+</div>

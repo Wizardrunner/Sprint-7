@@ -10,13 +10,7 @@ export interface Movie {
 
 @Component({
   selector: 'app-movie-card',
-  template: `
-    <div class="movie-card">
-      <img [src]="getImageUrl()" alt="Poster de la película">
-      <h3>{{ movie.title }}</h3>
-      <p>Episodio: {{ movie.episode_id }}</p>
-    </div>
-  `,
+  templateUrl: './movie-card.component.html',
   standalone: true,
   imports: [CommonModule]
 })

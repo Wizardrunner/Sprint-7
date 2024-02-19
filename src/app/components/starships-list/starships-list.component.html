@@ -1,1 +1,7 @@
 <!-- starships-list.component.html -->
+<div *ngIf="!selectedStarship" class="starships-container">
+    <div *ngFor="let starship of starships$ | async" class="starship-item" (click)="showStarshipDetails(starship)">
+      <p>{{ starship.name | uppercase }}</p><p>{{ starship.model }}</p>
+    </div>
+  </div>
+  <app-starship-details *ngIf="selectedStarship" [starship]="selectedStarship" (close)="clearSelection()"></app-starship-details>

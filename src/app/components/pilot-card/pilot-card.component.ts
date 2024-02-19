@@ -1,3 +1,4 @@
+// pilot-card.component.ts
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,12 +10,7 @@ interface Pilot {
 
 @Component({
   selector: 'app-pilot-card',
-  template: `
-    <div class="pilot-card">
-      <img [src]="getImageUrl()" alt="Foto del piloto" *ngIf="pilot.url">
-      <h3>{{ pilot.name }}</h3>
-    </div>
-  `,
+  templateUrl: './pilot-card.component.html',
   standalone: true,
   imports: [CommonModule]
 })

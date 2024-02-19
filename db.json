@@ -83,6 +83,13 @@
       "surname": "Luxury",
       "email": "ihave@many.dollars",
       "password": "$2b$10$ZTV/lhigzUrf04kAE6vlkef0Co4tmie9rXygOnLH7ndH0Uc/nTvLK"
+    },
+    {
+      "id": 13,
+      "name": "Romilda",
+      "surname": "Tripasduras",
+      "email": "intestino@grueso.colon",
+      "password": "$2b$10$jb/fn.ivcUD4efFbV2k0KuQnM9dGXZ7hm9gE3O6fsG60pGi4iXM9e"
     }
   ]
 }

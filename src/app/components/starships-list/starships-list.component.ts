@@ -1,4 +1,4 @@
-// starship-list.component.ts
+// starships-list.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -8,14 +8,7 @@ import { StarshipDetailsComponent } from '../starship-details/starship-details.c
 
 @Component({
   selector: 'app-starship-list',
-  template: `
-    <div *ngIf="!selectedStarship" class="starships-container">
-      <div *ngFor="let starship of starships$ | async" class="starship-item" (click)="showStarshipDetails(starship)">
-        <p>{{ starship.name | uppercase }}</p><p>{{ starship.model }}</p>
-      </div>
-    </div>
-    <app-starship-details *ngIf="selectedStarship" [starship]="selectedStarship" (close)="clearSelection()"></app-starship-details>
-  `,
+templateUrl: './starships-list.component.html',
   standalone: true,
   imports: [CommonModule, StarshipDetailsComponent],
   styleUrls: ['./starships-list.component.scss']
