@@ -1,38 +1,46 @@
 // login.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service'; 
-import { Router } from '@angular/router'; // Importa Router
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [FormsModule, CommonModule] // Importa FormsModule aquí
+  imports: [FormsModule, CommonModule],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  showAccessDeniedMessage = false;
 
-  constructor(private authService: AuthService, private router: Router) {} // Inyecta el Router aquí
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    // Comprueba los queryParams para ver si se denegó el acceso a '/starships'
+    this.route.queryParams.subscribe(params => {
+      if (params['accessDenied'] === 'starships') {
+        this.showAccessDeniedMessage = true;
+      }
+    });
+  }
 
   login() {
     this.authService.login(this.email, this.password).subscribe({
       next: (user) => {
-        console.log('Login exitoso', user);
-        this.router.navigate(['/starships']); // Redirige a la ruta de naves
+        // Lógica de redirección exitosa
       },
       error: (error) => {
-        console.error('Error en login', error);
-        this.errorMessage = 'Login failed. Please check your credentials.'; // Establece el mensaje de error
-      }
+        // Manejo de error de login
+      },
     });
   }
-  navigateToRegister() {
-    this.router.navigate(['/register']); // Navega a la ruta de registro
-  }
 
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
 }

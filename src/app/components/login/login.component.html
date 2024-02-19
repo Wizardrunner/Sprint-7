@@ -1,10 +1,10 @@
 <!--login.component.html-->
 <div class="modal-container">
-    <!-- Banner informativo para los usuarios no registrados -->
-    <div class="alert alert-info" role="alert">
-      Sorry, but you cannot view the starships without being registered.
-    </div>
-  
+  <!-- Banner informativo condicional para los usuarios no registrados -->
+  <div *ngIf="showAccessDeniedMessage" class="alert alert-info" role="alert">
+    Sorry, but you cannot view the starships without being registered.
+  </div>
+
   <form (submit)="login()">
     <!-- Muestra el mensaje de error si existe -->
     <div *ngIf="errorMessage" class="alert alert-danger">

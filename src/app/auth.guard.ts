@@ -1,27 +1,26 @@
 // src/app/auth.guard.ts
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from './services/auth.service'; 
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
-      // Si currentUser tiene valor, el usuario está logueado, permitir acceso
       return true;
     }
 
-    // No logueado, redirigir a la página de login con la URL que intentaban acceder
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    // Aquí, verifica si el usuario intentaba acceder a '/starships'
+    if (state.url.includes('/starships')) {
+      this.router.navigate(['/login'], { queryParams: { accessDenied: 'starships' } });
+    } else {
+      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    }
     return false;
   }
 }
