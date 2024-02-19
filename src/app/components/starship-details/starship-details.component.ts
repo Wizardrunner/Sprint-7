@@ -7,55 +7,8 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-starship-details',
+  templateUrl: './starship-details.component.html',
   styleUrls: ['./starship-details.component.scss'],
-  template: `
-<div class="starship-details-container" *ngIf="starship">
-  <h2 class="starship-title">Starships</h2>
-  <div class="image-and-data-container">
-    <div class="image-container">
-      <img *ngIf="starship.id" [src]="getImageUrl(starship.id)" [alt]="starship.name" (error)="onImageError($event)">
-    </div>
-    <div class="data-container">
-    <button (click)="close.emit()" class="close-button">X</button>
-    <h3>{{ starship.name }}</h3>
-      <h5>{{ starship.model }}</h5>
-      <p>Creation date: {{ starship.created }}</p>
-      <p>Modification date: {{ starship.edited }}</p>
-      <p>Manufacturer: {{ starship.manufacturer }}</p>
-      <p>Cost in credits: {{ starship.cost_in_credits }}</p>
-      <p>Megalights per hour: {{ starship.MGLT }}</p>
-      <p>Hyperdrive Rating: {{ starship.hyperdrive_rating }}</p>
-      <p>Maximum speed in atmosphere: {{ starship.max_atmosphering_speed }}</p>
-      <p>Length: {{ starship.length }} meters</p>
-      <p>Load capacity: {{ starship.cargo_capacity }}</p>
-      <p>Consumables: {{ starship.consumables }}</p>
-      <p>Crew: {{ starship.crew }}</p>
-      <p>Passengers: {{ starship.passengers }}</p>
-      </div>
-  </div>
-  <!-- Sección de Films -->
-  <div class="films-section">
-    <h2>Films</h2>
-    <div class="movies-container">
-      <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
-    </div>
-  </div>
-  <!-- Sección de Pilots -->
-  <div class="pilots-section">
-    <h2>Pilots</h2>
-    <ng-container *ngIf="pilots.length > 0; else noPilots">
-      <div class="pilots-container">
-        <app-pilot-card *ngFor="let pilot of pilots" [pilot]="pilot"></app-pilot-card>
-      </div>
-    </ng-container>
-    <ng-template #noPilots>
-      <div class="alert alert-warning" role="alert">
-        Sorry, but no pilots are available.
-      </div>
-    </ng-template>
-  </div>
-</div>
-  `,
   standalone: true,
   imports: [CommonModule, PilotCardComponent, MovieCardComponent]
 })

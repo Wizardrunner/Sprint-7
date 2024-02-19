@@ -1,8 +1,8 @@
 // login.component.ts
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule]
 })
 export class LoginComponent implements OnInit {
   email: string = '';
@@ -18,25 +18,31 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   showAccessDeniedMessage = false;
 
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // Comprueba los queryParams para ver si se denegó el acceso a '/starships'
     this.route.queryParams.subscribe(params => {
-      if (params['accessDenied'] === 'starships') {
-        this.showAccessDeniedMessage = true;
-      }
+      // Actualiza el mensaje basado en queryParams cada vez que cambian
+      this.showAccessDeniedMessage = params['accessDenied'] === 'starships';
     });
   }
 
   login() {
     this.authService.login(this.email, this.password).subscribe({
       next: (user) => {
-        // Lógica de redirección exitosa
+        console.log('Login exitoso', user);
+        // Redirige a '/starships' o a la página que se intentó acceder
+        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/starships';
+        this.router.navigateByUrl(returnUrl);
       },
       error: (error) => {
-        // Manejo de error de login
-      },
+        console.error('Error en login', error);
+        this.errorMessage = 'Login failed. Please check your credentials.';
+      }
     });
   }
 
