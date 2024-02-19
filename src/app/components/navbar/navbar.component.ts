@@ -56,13 +56,13 @@ import { CommonModule } from '@angular/common';
   <a *ngIf="!isLoggedIn" routerLink="/register">Sign Up</a>
   
   <!-- Muestra el enlace de Logout si el usuario está logueado -->
-  <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
+  <a *ngIf="isLoggedIn" (click)="logout()" class="logout-link">Logout</a>
 </div>
     </div>
     <div class="tabs-container">
     <nav>
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
-      <a (click)="navigateToStarships()" class="nav-link">Starships</a>
+      <a routerLink="/starships" routerLinkActive="active" (click)="navigateToStarships($event)" class="nav-link">Starships</a>
     </nav>
   </div>
 </div>
@@ -81,13 +81,18 @@ export class NavbarComponent {
     });
   }
 
-  navigateToStarships() {
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/starships']);
-    });
+  navigateToStarships(event: MouseEvent) {
+    // Previene la navegación predeterminada solo si es necesario
+    const currentRoute = this.router.url;
+    
+    if (currentRoute === '/starships' || currentRoute.includes('/starships/')) {
+      event.preventDefault(); // Prevenir la navegación estándar del routerLink si ya estás en 'starships'
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/starships']);
+      });
+    }
   }
-
-
+  
   logout() {
     this.authService.logout();
   }
