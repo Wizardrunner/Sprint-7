@@ -1,6 +1,11 @@
 <!--register.component.html-->
 <div class="modal-container">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
+    
+    <div *ngIf="registrationErrorMessage" class="alert alert-danger" role="alert">
+      {{ registrationErrorMessage }}
+    </div>
+    
     <div class="mb-3">
       <label for="name">Name:</label>
       <input type="text" class="form-control" id="name" formControlName="name">

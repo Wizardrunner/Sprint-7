@@ -1,3 +1,4 @@
+// register.component.ts
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
@@ -48,6 +49,9 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+    // Propiedad para almacenar el mensaje de error del registro
+    registrationErrorMessage: string | null = null;
+
   register() {
     if (this.registerForm.valid) {
       const { name, surname, email, password } = this.registerForm.value;
@@ -65,7 +69,16 @@ export class RegisterComponent {
             error: error => console.error('Error en el inicio de sesión automático', error)
           });
         },
-        error: error => console.error('Error en el registro', error)
+        error: error => {
+          if (error.status === 400) {
+
+            this.registrationErrorMessage = 'This email is already in use. Please try another one.';
+          } else {
+            // Manejo genérico de otros errores
+            console.error('Error en el registro', error);
+            this.registrationErrorMessage = 'An unexpected error occurred. Please try again.';
+          }
+        }
       });
     }
   }
